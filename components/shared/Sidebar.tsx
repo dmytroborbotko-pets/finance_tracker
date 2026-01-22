@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Home, Wallet, ArrowLeftRight, BarChart3, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './ThemeToggle';
+import { OnlineStatusDot } from './OnlineStatusIndicator';
 
 const navItems = [
   { href: '/', label: 'Dashboard', icon: Home },
@@ -47,10 +48,14 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t">
+      <div className="p-4 border-t space-y-3">
         <div className="flex items-center justify-between">
           <span className="text-sm text-muted-foreground">Theme</span>
           <ThemeToggle />
+        </div>
+        <div className="flex items-center gap-2">
+          <OnlineStatusDot />
+          <span className="text-xs text-muted-foreground">Connection Status</span>
         </div>
       </div>
     </aside>
